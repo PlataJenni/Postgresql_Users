@@ -4,9 +4,9 @@ Create database particion_ej;
 \c particion_ej
 
 create table product (id_product int, name_product text, price float)PARTITION BY RANGE (price);
-create table  particion_product_1 PARTITION OF product for values from (1.00) TO (3000);
-create table  particion_product_2 PARTITION OF product for values from (3001) TO (6000);
-create table  particion_product_3 PARTITION OF product for values from (6001) TO (10000);
+create table  particion_product_1 PARTITION OF product for values from (1.00) TO (3000.00);
+create table  particion_product_2 PARTITION OF product for values from (3001.00) TO (6000.00);
+create table  particion_product_3 PARTITION OF product for values from (6001.00) TO (10000.00);
 
 alter table particion_product_1 add constraint particion_1_check check ( price >= 1.00 and price <= 3000.00);
 alter table particion_product_2 add constraint particion_2_check check ( price >= 3001.00 and price <= 6000.00);
